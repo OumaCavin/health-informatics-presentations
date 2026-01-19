@@ -27,7 +27,6 @@
 \usetikzlibrary{shapes, arrows, positioning, fit, backgrounds, shapes.geometric}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{fontspec}
 \usepackage{caption}
 \captionsetup[figure]{labelformat=empty}
 \captionsetup[table]{labelformat=empty}
@@ -52,7 +51,6 @@
 }
 
 \begin{frame}{Group 5 Members}
-\begin{center}
 \begin{tabular}{ll}
 \toprule
 \textbf{Student ID} & \textbf{Student Name} \\
@@ -62,7 +60,6 @@ SDS6/47543/2024 & Laura Nabalayo Kundu \\
 SDS6/47659/2024 & John Andrew \\
 \bottomrule
 \end{tabular}
-\end{center}
 \end{frame}
 
 \begin{frame}{Overview: Quantitative and Modeling Module}
@@ -86,11 +83,10 @@ Statistical inference involves estimating unknown parameters from observed data:
 Given a random sample $X_1, X_2, \ldots, X_n$ from a distribution with probability density function $f(x|\theta)$, where $\theta$ is an unknown parameter, we seek to estimate $\theta$ based on the observed data.
 \end{block}
 
-\begin{center}
-\begin{tikzpicture}[node distance=2cm]
 \tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.2cm, text centered, draw=MidnightBlue, fill=blue!10]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
+\begin{tikzpicture}[node distance=2cm]
 \node (data) [block] {Observed Data\\$X_1, X_2, \ldots, X_n$};
 \node (model) [block, right of=data, xshift=4cm] {Statistical Model\\$f(x|\\theta)$};
 \node (estimate) [block, below of=data, yshift=-1cm] {Estimator\\$\\hat{\\theta}$};
@@ -98,7 +94,6 @@ Given a random sample $X_1, X_2, \ldots, X_n$ from a distribution with probabili
 \draw [arrow] (data) -- (model) node[midway, above] {Model assumption};
 \draw [arrow] (model) -- (estimate) node[midway, right] {MLE};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Definition of Maximum Likelihood Estimation}
@@ -125,9 +120,7 @@ MLE yields familiar estimators for common distributions:
 \begin{block}{Bernoulli Distribution}
 For $X_i \sim \text{Bernoulli}(p)$, the MLE is $\hat{p} = \frac{y}{n}$ where $y = \sum x_i$.
 
-\begin{small}
 The likelihood is $L(p) = p^y(1-p)^{n-y}$, maximizing this gives $\hat{p} = \frac{y}{n}$.
-\end{small}
 \end{block}
 
 \begin{block}{Normal Distribution}
@@ -334,21 +327,18 @@ For a one-unit increase in predictor $X_j$:
 $$\text{OR} = e^{\beta_j} = \frac{\text{odds}(Y=1|X_j+1)}{\text{odds}(Y=1|X_j)}$$
 \end{block}
 
-\begin{center}
-\begin{tikzpicture}[node distance=1.5cm]
 \tikzstyle{interpret} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.8cm, text centered]
 
+\begin{tikzpicture}[node distance=1.5cm]
 \node (I1) [interpret, draw=MidnightBlue, fill=blue!10] {$\\beta_j > 0 \\implies e^{\\beta_j} > 1$: Increased odds of outcome};
 \node (I2) [interpret, below of=I1, draw=Green, fill=green!10] {$\\beta_j = 0 \\implies e^{\\beta_j} = 1$: No association};
 \node (I3) [interpret, below of=I2, draw=Red, fill=red!10] {$\\beta_j < 0 \\implies e^{\\beta_j} < 1$: Decreased odds of outcome};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Applications in Public Health}
 Logistic regression is widely used for disease risk modeling:
 
-\begin{center}
 \begin{tabular}{lccc}
 \toprule
 Predictor & $\hat{\beta}$ & OR & 95\% CI \\
@@ -360,13 +350,11 @@ Current Smoker & 0.89 & 2.44 & (2.05, 2.90) \\
 Diabetes & 1.12 & 3.06 & (2.51, 3.73) \\
 \bottomrule
 \end{tabular}
-\end{center}
 
 Used in Framingham Risk Score and numerous clinical prediction models.
 \end{frame}
 
 \begin{frame}{Q1 Summary: Key Equations}
-\begin{center}
 \begin{small}
 \begin{align*}
 \textbf{Logistic Model:} \quad & P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + \cdots + \beta_k X_k)}} \\
@@ -376,7 +364,6 @@ Used in Framingham Risk Score and numerous clinical prediction models.
 \textbf{Odds Ratio:} \quad & \text{OR} = e^{\beta_j}
 \end{align*}
 \end{small}
-\end{center}
 \end{frame}
 
 % ============================================================================
@@ -394,10 +381,9 @@ Survival analysis studies the time until the occurrence of a specific event:
 Let $T$ denote the survival time, defined as the time from a defined origin (e.g., diagnosis, treatment initiation) to the occurrence of a specified event (e.g., death, disease recurrence, recovery).
 \end{block}
 
-\begin{center}
-\begin{tikzpicture}[node distance=2cm]
 \tikzstyle{block} = [rectangle, rounded corners, minimum width=5cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10]
 
+\begin{tikzpicture}[node distance=2cm]
 \node (origin) [block] {Origin\\$t=0$};
 \node (event) [block, right of=origin, xshift=5cm] {Event\\$T=t$};
 
@@ -406,7 +392,6 @@ Let $T$ denote the survival time, defined as the time from a defined origin (e.g
 \node at (2.5, -1.5) [rectangle, draw=Green, fill=green!10, minimum width=3cm] {Event observed};
 \node at (5, -1.5) [rectangle, draw=Red, fill=red!10, minimum width=3cm] {Censored};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Censoring: The Central Challenge}
@@ -511,7 +496,6 @@ $$\frac{h(t|X_A)}{h(t|X_B)} = \exp(\beta^T (X_A - X_B))$$
 This ratio is constant for all time $t$.
 \end{block}
 
-\begin{center}
 \begin{tikzpicture}[domain=0:6, smooth, samples=100]
 \draw[->] (-0.5,0) -- (6.5,0) node[right] {$t$};
 \draw[->] (0,-0.5) -- (0,3.5) node[above] {$h(t)$};
@@ -524,7 +508,6 @@ This ratio is constant for all time $t$.
 \node at (5.5,1.75) {HR = 1.8};
 \node at (5.5,1.35) {(Constant ratio)};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \subsection{Hazard Ratios: Definition and Interpretation}
@@ -536,7 +519,7 @@ The hazard ratio (HR) is the primary measure of association in survival analysis
 The hazard ratio compares the hazards of two groups:
 $$\text{HR} = \frac{h(t|X_A)}{h(t|X_B)} = \exp\left(\beta^T (X_A - X_B)\right)$$
 The baseline hazard cancels out, leaving only the covariate effects.
-\end{block}
+\end{definition}
 
 \begin{block}{Key Result}
 $$\text{HR} = \exp(\beta_j)$$
@@ -545,19 +528,16 @@ The exponentiated coefficient directly gives the hazard ratio for a one-unit cha
 \end{frame}
 
 \begin{frame}{Interpretation of Hazard Ratios}
-\begin{center}
-\begin{tikzpicture}[node distance=1.2cm]
 \tikzstyle{interpretation} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered]
 
+\begin{tikzpicture}[node distance=1.2cm]
 \node (I1) [interpretation, draw=Green, fill=green!10] {$\\beta > 0 \\implies \\text{HR} > 1$: The covariate increases the hazard (risk factor)};
 \node (I2) [interpretation, below of=I1, draw=MidnightBlue, fill=blue!10] {$\\beta = 0 \\implies \\text{HR} = 1$: No association};
 \node (I3) [interpretation, below of=I2, draw=Red, fill=red!10] {$\\beta < 0 \\implies \\text{HR} < 1$: The covariate decreases the hazard (protective factor)};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Numerical Interpretation Examples}
-\begin{center}
 \begin{tabular}{cccc}
 \toprule
 $\beta$ & HR = $\exp(\beta)$ & Interpretation & 95\% CI for HR \\
@@ -570,7 +550,6 @@ $\beta$ & HR = $\exp(\beta)$ & Interpretation & 95\% CI for HR \\
 -1.00 & 0.37 & 63\% decreased hazard & (0.30, 0.45) \\
 \bottomrule
 \end{tabular}
-\end{center}
 \end{frame}
 
 \begin{frame}{Continuous Covariates: Unit Changes}
@@ -585,78 +564,7 @@ If $\beta_{\text{age}} = 0.08$ (per year):
 \end{block}
 \end{frame}
 
-\subsection{Estimation and the Proportional Hazards Assumption}
-
-\begin{frame}{Partial Likelihood for Cox Model}
-Unlike parametric models, the Cox model uses partial likelihood:
-
-\begin{block}{Partial Likelihood Principle}
-At each event time $t_j$, the probability that individual $i$ (who experienced the event) had the event, given that one event occurred in the risk set $R(t_j)$, is:
-$$L(\beta) = \prod_{j=1}^{D} \frac{\exp(\beta^T X_i)}{\sum_{l \in R(t_j)} \exp(\beta^T X_l)}$$
-where $D$ is the number of distinct event times.
-\end{block}
-
-\begin{block}{Risk Set}
-The risk set $R(t_j)$ contains all individuals still under observation just before time $t_j$.
-\end{block}
-\end{frame}
-
-\begin{frame}{Incorporating Censoring in Partial Likelihood}
-Censored observations contribute to the likelihood through their presence in risk sets:
-
-\begin{center}
-\begin{tikzpicture}[node distance=1cm]
-\tikzstyle{contribution} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.8cm, text centered]
-
-\node (C1) [contribution, draw=MidnightBlue, fill=blue!10] {Censored observations: Contribute to denominators (risk sets) until their censoring time};
-\node (C2) [contribution, below of=C1, draw=Red, fill=red!10] {Events: Contribute to numerators at their event time};
-\end{tikzpicture}
-\end{center}
-
-This approach assumes non-informative censoring.
-\end{frame}
-
-\begin{frame}{Checking the Proportional Hazards Assumption}
-Several diagnostic methods assess the PH assumption:
-
-\begin{block}{Graphical Methods}
-\begin{itemize}
-\item \textbf{Log-minus-log plots}: Parallel lines suggest PH holds
-\item \textbf{Kaplan-Meier curves}: Visual inspection of survival curves crossing
-\end{itemize}
-\end{block}
-
-\begin{block}{Statistical Tests}
-\begin{itemize}
-\item \textbf{Schoenfeld residuals}: Test for correlation between residuals and time
-\item \textbf{Grambsch-Therneau test}: Formal test for non-zero slope
-\end{itemize}
-\end{block}
-
-\begin{block}{Addressing Violations}
-When PH is violated, consider stratified Cox models, time-dependent covariates, or parametric alternatives.
-\end{block}
-\end{frame}
-
-\begin{frame}{Public Health Applications of Cox Models}
-Cox proportional hazards models are widely used in public health research:
-
-\begin{center}
-\begin{tabular}{p{4cm}p{5cm}}
-\toprule
-Application & Description \\
-\midrule
-Epidemiological cohort studies & Identifying risk factors for disease \\
-Clinical trials & Comparing treatment effects on survival \\
-Vaccine effectiveness & Assessing protection over time \\
-Health services research & Evaluating readmission patterns \\
-\bottomrule
-\end{tabular}
-\end{center}
-\end{frame}
-
 \begin{frame}{Q2 Summary: Key Equations}
-\begin{center}
 \begin{small}
 \begin{align*}
 \textbf{Hazard Function:} \quad & h(t) = \\lim_{\\Delta t \\to 0} \\frac{P(t \\le T < t + \\Delta t | T \\ge t)}{\\Delta t} \\\\
@@ -666,7 +574,6 @@ Health services research & Evaluating readmission patterns \\
 \textbf{Data:} \quad & \\text{Observed time } t_i = \\min(T_i, C_i), \\quad \\delta_i = I(T_i \\le C_i)
 \end{align*}
 \end{small}
-\end{center}
 \end{frame}
 
 % ============================================================================
@@ -684,11 +591,10 @@ Principal Component Analysis (PCA) is a linear dimensionality reduction techniqu
 PCA is an unsupervised learning technique that transforms a set of correlated variables into a smaller set of uncorrelated variables called \textbf{principal components} (PCs), while retaining the maximum possible variance in the original data.
 \end{block}
 
-\begin{center}
-\begin{tikzpicture}[node distance=2cm]
 \tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
+\begin{tikzpicture}[node distance=2cm]
 \node (input) [block] {Original Data\\$n \\times p$ matrix\\$p = 15$ indicators};
 \node (pca) [block, right of=input, xshift=5cm] {PCA\\Transformation};
 \node (output) [block, right of=pca, xshift=5cm] {Reduced Data\\$n \\times k$ matrix\\$k = 4$ components};
@@ -696,13 +602,11 @@ PCA is an unsupervised learning technique that transforms a set of correlated va
 \draw [arrow] (input) -- (pca) node[midway, above] {Linear\\projection};
 \draw [arrow] (pca) -- (output) node[midway, above] {Variance\\maximization};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Geometric Interpretation of PCA}
 PCA finds the directions of maximum variance in the data:
 
-\begin{center}
 \begin{tikzpicture}[domain=-2:3, smooth, samples=100]
 \draw[->] (-2.5,0) -- (3.5,0) node[right] {$X_1$};
 \draw[->] (0,-2) -- (0,3) node[above] {$X_2$};
@@ -716,7 +620,6 @@ PCA finds the directions of maximum variance in the data:
 \node at (1,1.8) {PC1 captures major};
 \node at (1,1.5) {axis variance};
 \end{tikzpicture}
-\end{center}
 
 \begin{block}{Key Principle}
 PC1 captures the maximum variance direction; PC2 is orthogonal to PC1 and captures remaining maximum variance.
@@ -741,39 +644,31 @@ where $\mathbf{a}_j = (a_{j1}, \ldots, a_{jp})$ is the loading vector (eigenvect
 \end{block}
 \end{frame}
 
-\subsection{Motivation for Dimensionality Reduction}
-
 \begin{frame}{The Problem of Dimensionality in Clinical Research}
 Modern clinical studies often collect numerous measurements per patient:
 
-\begin{center}
-\begin{tikzpicture}[node distance=1.5cm]
 \tikzstyle{challenge} = [rectangle, rounded corners, minimum width=10cm, minimum height=1cm, text centered]
 
+\begin{tikzpicture}[node distance=1.5cm]
 \node (C1) [challenge, draw=Red, fill=red!10] {High correlation among clinical indicators};
 \node (C2) [challenge, below of=C1, draw=Orange, fill=orange!10] {Small sample sizes relative to number of variables};
 \node (C3) [challenge, below of=C2, draw=Yellow, fill=yellow!10] {Multicollinearity complicates regression modeling};
 \node (C4) [challenge, below of=C3, draw=MidnightBlue, fill=blue!10] {Difficult interpretation of 15+ correlated variables};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Benefits of Dimensionality Reduction}
 Reducing 15 indicators to 4 principal components offers several advantages:
 
-\begin{center}
-\begin{tikzpicture}[node distance=1.2cm]
 \tikzstyle{benefit} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered]
 
+\begin{tikzpicture}[node distance=1.2cm]
 \node (B1) [benefit, draw=MidnightBlue, fill=blue!10] {Dimensionality reduction: 15 $\\rightarrow$ 4 variables (73\% reduction)};
 \node (B2) [benefit, below of=B1, draw=Green, fill=green!10] {Decorrelation: Components are uncorrelated (eliminates multicollinearity)};
 \node (B3) [benefit, below of=B2, draw=Orange, fill=orange!10] {Noise reduction: Low-variance components often capture measurement error};
 \node (B4) [benefit, below of=B3, draw=Purple, fill=purple!10] {Interpretability: Each PC represents a clinical dimension};
 \end{tikzpicture}
-\end{center}
 \end{frame}
-
-\subsection{Step-by-Step PCA Implementation}
 
 \begin{frame}{Step 1: Data Standardization}
 Before performing PCA, variables must be standardized:
@@ -803,7 +698,6 @@ where $\mathbf{R}$ is a $p \times p$ symmetric matrix with 1s on the diagonal.
 \end{block}
 
 \begin{block}{Example Correlations in Clinical Data}
-\begin{center}
 \begin{tabular}{llc}
 \toprule
 Variable Pair & Interpretation & Correlation \\
@@ -813,7 +707,6 @@ HDL - Triglycerides & Moderate negative & -0.52 \\
 Creatinine - eGFR & Strong negative & -0.85 \\
 \bottomrule
 \end{tabular}
-\end{center}
 \end{block}
 \end{frame}
 
@@ -844,7 +737,6 @@ For standardized data: $\lambda_j = \text{Var}(PC_j)$ and $\sum_{j=1}^{p} \lambd
 \end{block}
 
 \begin{block}{Example Eigenvalue Spectrum}
-\begin{center}
 \begin{tabular}{cccc}
 \toprule
 Component & Eigenvalue ($\lambda_j$) & Variance \% & Cumulative \% \\
@@ -855,30 +747,24 @@ PC3 & 2.14 & 14.3 & 63.5 \\
 PC4 & 1.68 & 11.2 & 74.7 \\
 \bottomrule
 \end{tabular}
-\end{center}
 \end{block}
 \end{frame}
 
 \begin{frame}{Step-by-Step Algorithm Summary}
-\begin{center}
-\begin{tikzpicture}[node distance=1cm]
 \tikzstyle{step} = [rectangle, rounded corners, minimum width=12cm, minimum height=0.9cm, text centered]
 
+\begin{tikzpicture}[node distance=1cm]
 \node (S1) [step, draw=MidnightBlue, fill=blue!10] {\textbf{Step 1:} Standardize data: $Z_{ij} = (X_{ij} - \\bar{X}_j) / s_j$};
 \node (S2) [step, below of=S1, draw=Green, fill=green!10] {\textbf{Step 2:} Compute correlation matrix: $\\mathbf{R} = \\frac{1}{n-1}\\mathbf{Z}^T\\mathbf{Z}$};
 \node (S3) [step, below of=S2, draw=Orange, fill=orange!10] {\textbf{Step 3:} Eigenvalue decomposition: $\\mathbf{R}\\mathbf{v}_j = \\lambda_j\\mathbf{v}_j$};
 \node (S4) [step, below of=S3, draw=Purple, fill=purple!10] {\textbf{Step 4:} Order by eigenvalues: $\\lambda_1 \\ge \\lambda_2 \\ge \\cdots \\ge \\lambda_{15}$};
 \node (S5) [step, below of=S4, draw=Red, fill=red!10] {\textbf{Step 5:} Select top $k$ components and compute scores: $\\mathbf{PC} = \\mathbf{Z}\\mathbf{V}_k$};
 \end{tikzpicture}
-\end{center}
 \end{frame}
-
-\subsection{Variance Explained and Component Selection}
 
 \begin{frame}{Scree Plot for Component Selection}
 The scree plot visualizes eigenvalues to guide component selection:
 
-\begin{center}
 \begin{tikzpicture}[domain=0.5:15.5, samples=15]
 \draw[->] (0,0) -- (16,0) node[right] {Component Number};
 \draw[->] (0,0) -- (0,5) node[above] {Eigenvalue};
@@ -908,7 +794,6 @@ The scree plot visualizes eigenvalues to guide component selection:
 \node at (10,4) {Scree Plot};
 \node at (10,3.5) {Elbow at PC4};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Justifying 4 Principal Components}
@@ -928,12 +813,9 @@ Visual inspection of the scree plot shows an elbow at PC4.
 \end{block}
 \end{frame}
 
-\subsection{Interpretation of Principal Components}
-
 \begin{frame}{Interpreting Principal Components in Clinical Context}
 Each principal component represents a clinical dimension:
 
-\begin{center}
 \begin{tabular}{lp{8cm}c}
 \toprule
 Component & Clinical Interpretation & Variance \% \\
@@ -947,7 +829,6 @@ PC3 & \textbf{Inflammatory Status}: CRP, ESR, WBC Count & 14.3 \\
 PC4 & \textbf{Renal Function}: Creatinine, eGFR & 11.2 \\
 \bottomrule
 \end{tabular}
-\end{center}
 
 Cumulative variance: 74.7\% retained.
 \end{frame}
@@ -972,7 +853,6 @@ In matrix form: $\mathbf{PC} = \mathbf{Z}\mathbf{V}_4$
 \begin{frame}{Biplot for Joint Interpretation}
 The biplot visualizes observations and variables simultaneously:
 
-\begin{center}
 \begin{tikzpicture}[domain=-3:3, smooth, samples=50]
 \draw[->] (-3.5,0) -- (3.5,0) node[right] {PC1};
 \draw[->] (0,-3) -- (0,3) node[above] {PC2};
@@ -989,7 +869,6 @@ The biplot visualizes observations and variables simultaneously:
 
 \node at (2.5,2) {Biplot};
 \end{tikzpicture}
-\end{center}
 
 \begin{block}{Biplot Interpretation}
 Points = patient scores; Arrows = variable loadings.
@@ -999,20 +878,17 @@ Points = patient scores; Arrows = variable loadings.
 \begin{frame}{Limitations of PCA}
 PCA has important limitations:
 
-\begin{center}
-\begin{tikzpicture}[node distance=1cm]
 \tikzstyle{limitation} = [rectangle, rounded corners, minimum width=11cm, minimum height=0.9cm, text centered]
 
+\begin{tikzpicture}[node distance=1cm]
 \node (L1) [limitation, draw=Red, fill=red!10] {\textbf{Linearity}: PCA only captures linear relationships};
 \node (L2) [limitation, below of=L1, draw=Orange, fill=orange!10] {\textbf{No class discrimination}: Components may not separate disease groups};
 \node (L3) [limitation, below of=L2, draw=Yellow, fill=yellow!10] {\textbf{Interpretability}: Component meaning may be unclear};
 \node (L4) [limitation, below of=L3, draw=MidnightBlue, fill=blue!10] {\textbf{Information loss}: Some variance is discarded};
 \end{tikzpicture}
-\end{center}
 \end{frame}
 
 \begin{frame}{Q3 Summary: Key Equations}
-\begin{center}
 \begin{small}
 \begin{align*}
 \textbf{Standardization:} \quad & Z_{ij} = \\frac{X_{ij} - \\bar{X}_j}{s_j} \\\\
@@ -1023,7 +899,6 @@ PCA has important limitations:
 \textbf{Cumulative Variance:} \quad & \\text{CVE}_4 = 74.7\\%
 \end{align*}
 \end{small}
-\end{center}
 \end{frame}
 
 % ============================================================================
@@ -1061,8 +936,6 @@ The transition from descriptive and diagnostic analytics to predictive and presc
 \end{block}
 \end{frame}
 
-\subsection{Phase 1: Problem Definition and Clinical Question}
-
 \begin{frame}{Defining the Clinical Problem}
 The foundation of any successful ML implementation begins with a precisely formulated clinical question:
 
@@ -1075,18 +948,6 @@ The foundation of any successful ML implementation begins with a precisely formu
 
 Common applications include mortality prediction, readmission risk, sepsis early warning, and length of stay estimation.
 \end{frame}
-
-\begin{frame}{Translating Clinical Questions to ML Objectives}
-Bridging the gap between clinical intuition and ML specifications:
-
-\begin{itemize}
-\item \textbf{Outcome Definition}: Precise operationalization of clinical endpoints (e.g., 30-day all-cause vs. preventable readmission).
-\item \textbf{Prediction Window}: Determination of the relevant time horizon for clinical action (e.g., 24-hour vs. 7-day predictions).
-\item \textbf{Threshold Selection}: Balance between sensitivity and specificity based on clinical consequences.
-\end{itemize}
-\end{frame}
-
-\subsection{Phase 2: Data Collection and Preprocessing}
 
 \begin{frame}{Data Sources in Hospital Settings}
 Hospital data ecosystems comprise multiple interconnected sources:
@@ -1114,8 +975,6 @@ Healthcare data presents unique preprocessing challenges:
 \end{itemize}
 \end{frame}
 
-\subsection{Phase 3: Feature Engineering and Selection}
-
 \begin{frame}{Feature Engineering in Clinical Domains}
 Feature engineering transforms raw clinical data into meaningful predictors:
 
@@ -1139,8 +998,6 @@ Feature selection aims to identify the most predictive subset of features:
 
 Balancing statistical significance with clinical interpretability is crucial.
 \end{frame}
-
-\subsection{Phase 4: Model Selection and Training}
 
 \begin{frame}{Model Selection Considerations}
 The selection of ML algorithms requires careful consideration of trade-offs:
@@ -1167,8 +1024,6 @@ Rigorous model training protocols ensure reproducibility and generalizability:
 \end{itemize}
 \end{frame}
 
-\subsection{Phase 5: Model Validation and Performance Evaluation}
-
 \begin{frame}{Validation Strategies}
 Comprehensive validation assesses performance across multiple dimensions:
 
@@ -1190,8 +1045,6 @@ Evaluation metrics must align with clinical objectives:
 \item \textbf{Sensitivity and Specificity}: Performance at clinically relevant operating points.
 \end{itemize}
 \end{frame}
-
-\subsection{Phase 6: Deployment and Clinical Integration}
 
 \begin{frame}{Deployment Strategies}
 Transitioning from research prototypes to clinical systems:
@@ -1215,8 +1068,6 @@ Successful deployment depends on thoughtful integration:
 \item \textbf{EHR Integration Standards}: SMART on FHIR applications for interoperability.
 \end{itemize}
 \end{frame}
-
-\subsection{Model Governance, Monitoring, and Updating}
 
 \begin{frame}{Model Governance Framework}
 Establishing robust governance structures ensures accountability:
@@ -1251,8 +1102,6 @@ Maintaining model relevance requires planned updating protocols:
 \end{itemize}
 \end{frame}
 
-\subsection{Data Privacy, Ethics, and Regulatory Considerations}
-
 \begin{frame}{Data Privacy Requirements}
 Healthcare ML development must comply with stringent privacy regulations:
 
@@ -1285,8 +1134,6 @@ Clinical ML systems may be subject to regulatory oversight:
 \item \textbf{Post-Market Surveillance}: Ongoing monitoring and adverse event reporting.
 \end{itemize}
 \end{frame}
-
-\subsection{Clinical Decision Support Examples}
 
 \begin{frame}{Example 1: Sepsis Early Warning System}
 Sepsis prediction demonstrates the full workflow from problem definition to deployment:
@@ -1371,7 +1218,6 @@ Machine learning holds tremendous promise for improving healthcare outcomes, but
 \end{frame}
 
 \begin{frame}{Course Information}
-\begin{center}
 \begin{tabular}{ll}
 \toprule
 \textbf{Course} & \textbf{SDS6210 – Informatics for Health} \\
@@ -1385,7 +1231,6 @@ Students: & Cavin Otieno (SDS6/46982/2024) \\
 & John Andrew (SDS6/47659/2024) \\
 \bottomrule
 \end{tabular}
-\end{center}
 \end{frame}
 
 \end{document}
