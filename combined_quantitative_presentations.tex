@@ -9,7 +9,6 @@
 \definecolor{LightSteelBlue}{RGB}{176, 196, 222}
 
 \usetheme[
-  progressbar=foot,
   sectionpage=progressbar,
   subsectionpage=progressbar,
   numbering=fraction
@@ -20,6 +19,28 @@
 \setbeamercolor{title}{fg=MidnightBlue}
 \setbeamercolor{frame title}{fg=MidnightBlue}
 \setbeamercolor{structure}{fg=MidnightBlue}
+\setbeamercolor{footline}{fg=MidnightBlue, bg=LightSteelBlue}
+\setbeamercolor{author in head/foot}{fg=MidnightBlue, bg=LightSteelBlue}
+\setbeamercolor{date in head/foot}{fg=MidnightBlue, bg=LightSteelBlue}
+\setbeamercolor{section in head/foot}{fg=MidnightBlue, bg=LightSteelBlue}
+\setbeamercolor{subsection in head/foot}{fg=MidnightBlue, bg=LightSteelBlue}
+\setbeamercolor{page number in head/foot}{fg=MidnightBlue, bg=LightSteelBlue}
+
+% Custom footline with University of Nairobi, date and page number
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{
+    \begin{beamercolorbox}[wd=.35\paperwidth,ht=8pt,dp=1pt,left]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortinstitute
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.35\paperwidth,ht=8pt,dp=1pt,center]{date in head/foot}%
+      \usebeamerfont{date in head/foot}\insertdate
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=8pt,dp=1pt,right]{page number in head/foot}%
+      \usebeamerfont{page number in head/foot}\insertframenumber{} / \inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -34,7 +55,7 @@
 \title{\textbf{Quantitative and Modeling Methods for Health Informatics}}
 \subtitle{SDS6210 – Informatics for Health\\Comprehensive Presentations (Q1-Q4)}
 \author{\textbf{Group 5}}
-\institute{MSc Public Health Data Science\\Department of Public Health}
+\institute{University of Nairobi\\Department of Mathematics}
 \date{\today}
 
 \begin{document}
@@ -48,16 +69,20 @@
 \begin{frame}
 \titlepage
 \end{frame}
-}
 
-\begin{frame}{Group 5 Members}
+\begin{frame}{Unit and Group Information}
 \begin{tabular}{ll}
 \toprule
-\textbf{Student ID} & \textbf{Student Name} \\
+\textbf{Unit} & \textbf{SDS6210 – Informatics for Health} \\
 \midrule
-SDS6/46982/2024 & Cavin Otieno \\
-SDS6/47543/2024 & Laura Nabalayo Kundu \\
-SDS6/47659/2024 & John Andrew \\
+Programme & MSc Public Health Data Science \\
+Institution & University of Nairobi \\
+Department & Department of Mathematics \\
+\midrule
+\textbf{Group 5 Members} & \\
+& Cavin Otieno (SDS6/46982/2024) \\
+& Laura Nabalayo Kundu (SDS6/47543/2024) \\
+& John Andrew (SDS6/47659/2024) \\
 \bottomrule
 \end{tabular}
 \end{frame}
@@ -83,14 +108,16 @@ Statistical inference involves estimating unknown parameters from observed data:
 Given a random sample $X_1, X_2, \ldots, X_n$ from a distribution with probability density function $f(x|\theta)$, where $\theta$ is an unknown parameter, we seek to estimate $\theta$ based on the observed data.
 \end{block}
 
-\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1.2cm, text centered, draw=MidnightBlue, fill=blue!10}]
-\node (data) {Observed Data\\$X_1, X_2, \ldots, X_n$};
-\node (model) [right of=data, xshift=4cm] {Statistical Model\\$f(x|\theta)$};
-\node (estimate) [below of=data, yshift=-1cm] {Estimator\\$\hat{\theta}$};
+\begin{center}
+\begin{tikzpicture}[every node/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1.2cm, text centered, draw=MidnightBlue, fill=blue!10}, node distance=2cm]
+\node (data) {Observed Data};
+\node (model) [right of=data, xshift=4cm] {Statistical Model};
+\node (estimate) [below of=data, yshift=-1cm] {Estimator};
 
-\draw [thick,->,>=stealth] (data) -- (model) node[midway, above] {Model assumption};
-\draw [thick,->,>=stealth] (model) -- (estimate) node[midway, right] {MLE};
+\draw [thick,->,>=stealth] (data) -- (model) node[midway, above] {$\{X_i\} \rightarrow f(x|\theta)$};
+\draw [thick,->,>=stealth] (model) -- (estimate) node[midway, right] {MLE $\rightarrow \hat{\theta}$};
 \end{tikzpicture}
+\end{center}
 \end{frame}
 
 \begin{frame}{Definition of Maximum Likelihood Estimation}
@@ -376,15 +403,16 @@ Survival analysis studies the time until the occurrence of a specific event:
 Let $T$ denote the survival time, defined as the time from a defined origin (e.g., diagnosis, treatment initiation) to the occurrence of a specified event (e.g., death, disease recurrence, recovery).
 \end{block}
 
-\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=5cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10}]
-\node (origin) {Origin\\$t=0$};
-\node (event) [right of=origin, xshift=5cm] {Event\\$T=t$};
+\begin{center}
+\begin{tikzpicture}[every node/.style={rectangle, rounded corners, text centered, draw=MidnightBlue, fill=blue!10}, node distance=2cm]
+\node (origin) {Origin};
+\node (event) [right of=origin, xshift=5cm, minimum width=3cm] {Event};
 
-\draw[->, thick, >=stealth] (origin) -- (event) node[midway, above] {Survival time $T$};
-
-\node at (2.5, -1.5) [rectangle, draw=Green, fill=green!10, minimum width=3cm] {Event observed};
+\draw[->, thick, >=stealth] (origin) -- (event) node[midway, above] {$T=$ time};
+\node at (2.5, -1.5) [rectangle, draw=Green, fill=green!10, minimum width=3cm] {Observed};
 \node at (5, -1.5) [rectangle, draw=Red, fill=red!10, minimum width=3cm] {Censored};
 \end{tikzpicture}
+\end{center}
 \end{frame}
 
 \begin{frame}{Censoring: The Central Challenge}
@@ -496,10 +524,10 @@ This ratio is constant for all time $t$.
 \draw[thick, MidnightBlue] plot (\x, {0.5*exp(-0.2*\x)});
 \draw[thick, red] plot (\x, {0.5*exp(-0.2*\x)*1.8});
 
-\node at (5,2.5) {Group A};
-\node at (5,1) {Group B};
-\node at (5.5,1.75) {HR = 1.8};
-\node at (5.5,1.35) {(Constant ratio)};
+\node [right] at (5,2.5) {Group A};
+\node [right] at (5,1) {Group B};
+\node [right] at (5.5,1.75) {HR = 1.8};
+\node [right] at (5.5,1.35) {(Constant ratio)};
 \end{tikzpicture}
 \end{frame}
 
@@ -582,14 +610,16 @@ Principal Component Analysis (PCA) is a linear dimensionality reduction techniqu
 PCA is an unsupervised learning technique that transforms a set of correlated variables into a smaller set of uncorrelated variables called \textbf{principal components} (PCs), while retaining the maximum possible variance in the original data.
 \end{block}
 
-\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10}]
-\node (input) {Original Data\\$n \times p$ matrix\\$p = 15$ indicators};
-\node (pca) [right of=input, xshift=5cm] {PCA\\Transformation};
-\node (output) [right of=pca, xshift=5cm] {Reduced Data\\$n \times k$ matrix\\$k = 4$ components};
+\begin{center}
+\begin{tikzpicture}[every node/.style={rectangle, rounded corners, text centered, draw=MidnightBlue, fill=blue!10}, node distance=2cm]
+\node (input) {Original Data};
+\node (pca) [right of=input, xshift=4cm] {PCA};
+\node (output) [right of=pca, xshift=4cm] {Reduced Data};
 
-\draw [thick,->,>=stealth] (input) -- (pca) node[midway, above] {Linear\\projection};
-\draw [thick,->,>=stealth] (pca) -- (output) node[midway, above] {Variance\\maximization};
+\draw [thick,->,>=stealth] (input) -- (pca) node[midway, above] {Linear proj.};
+\draw [thick,->,>=stealth] (pca) -- (output) node[midway, above] {Variance max.};
 \end{tikzpicture}
+\end{center}
 \end{frame}
 
 \begin{frame}{Geometric Interpretation of PCA}
@@ -604,9 +634,9 @@ PCA finds the directions of maximum variance in the data:
 \draw[->, thick, red, >=stealth] (-0.5,-0.8) -- (2.5,1.2) node[above right] {PC1};
 \draw[->, thick, green, >=stealth] (0.5,2.2) -- (-1.5,-0.7) node[below left] {PC2};
 
-\node at (3,2.5) {Data ellipse};
-\node at (1,1.8) {PC1 captures major};
-\node at (1,1.5) {axis variance};
+\node [right] at (3,2.5) {Data ellipse};
+\node [right] at (1,1.8) {PC1 captures major};
+\node [right] at (1,1.5) {axis variance};
 \end{tikzpicture}
 
 \begin{block}{Key Principle}
@@ -769,12 +799,12 @@ The scree plot visualizes eigenvalues to guide component selection:
 (15,0.15)
 };
 
-\draw[dashed, red] (0,1) -- (16,1) node[right at={(16,1)}] {Kaiser criterion ($\lambda=1$)};
+\draw[dashed, red] (0,1) -- (16,1) node[right] {Kaiser criterion ($\lambda=1$)};
 
 \node[circle, draw=Red, fill=red!10, minimum size=0.3cm] at (4,1.68) {};
 
-\node at (10,4) {Scree Plot};
-\node at (10,3.5) {Elbow at PC4};
+\node [right] at (10,4) {Scree Plot};
+\node [right] at (10,3.5) {Elbow at PC4};
 \end{tikzpicture}
 \end{frame}
 
@@ -849,7 +879,7 @@ The biplot visualizes observations and variables simultaneously:
 \draw[->, thick, blue] (0,0) -- (0.15,0.92) node[left] {CRP};
 \draw[->, thick, green] (0,0) -- (0.65,-0.55) node[below right] {BMI};
 
-\node at (2.5,2) {Biplot};
+\node [right] at (2.5,2) {Biplot};
 \end{tikzpicture}
 
 \begin{block}{Biplot Interpretation}
@@ -1185,32 +1215,23 @@ Machine learning holds tremendous promise for improving healthcare outcomes, but
 \end{small}
 \end{frame}
 
-\begin{frame}{References: Q3 - PCA and Q4 - ML Workflow}
+\begin{frame}{References: Q3 - PCA}
 \begin{small}
 \begin{itemize}
 \item Jolliffe, I.T. and Cadima, J. (2016). Principal component analysis: A review and recent developments. Philosophical Transactions of the Royal Society A, 374(2065), 20150202.
 \item Ringnér, M. (2008). What is principal component analysis? Nature Biotechnology, 26(3), 303-304.
+\end{itemize}
+\end{small}
+\end{frame}
+
+\begin{frame}{References: Q4 - ML Workflow}
+\begin{small}
+\begin{itemize}
 \item Hastie, T., Tibshirani, R., and Friedman, J. (2009). The Elements of Statistical Learning (2nd ed.). Springer.
 \item Rajkomar, A., Oren, E., Chen, K., et al. (2018). Scalable and accurate deep learning with electronic health records. NPJ Digital Medicine, 1(1), 18.
 \item FDA. (2019). Software as a Medical Device (SaMD): Clinical Evaluation. FDA Guidance Document.
 \end{itemize}
 \end{small}
-\end{frame}
-
-\begin{frame}{Course Information}
-\begin{tabular}{ll}
-\toprule
-\textbf{Course} & \textbf{SDS6210 – Informatics for Health} \\
-\midrule
-Programme & MSc Public Health Data Science \\
-Institution & Department of Public Health \\
-Group & 5 \\
-\midrule
-Students: & Cavin Otieno (SDS6/46982/2024) \\
-& Laura Nabalayo Kundu (SDS6/47543/2024) \\
-& John Andrew (SDS6/47659/2024) \\
-\bottomrule
-\end{tabular}
 \end{frame}
 
 \end{document}

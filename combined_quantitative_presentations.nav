@@ -1,0 +1,212 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {0}{0}{3}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\beamer@sectionpages {1}{3}}
+\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\sectionentry {1}{Q1: Maximum Likelihood Estimation and Logistic Regression}{4}{Q1: Maximum Likelihood Estimation and Logistic Regression}{0}}
+\headcommand {\slideentry {1}{0}{1}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\beamer@subsectionpages {4}{4}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{5}{Foundational Concepts of MLE}}
+\headcommand {\slideentry {1}{1}{1}{5/5}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{2}{6/6}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{1}{3}{7/7}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{1}{4}{8/8}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{1}{5}{9/9}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{1}{6}{10/10}{Foundational Concepts of MLE}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsectionpages {5}{10}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{11}{Logistic Regression Model}}
+\headcommand {\slideentry {1}{2}{1}{11/11}{Logistic Regression Model}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {1}{2}{2}{12/12}{Logistic Regression Model}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {1}{2}{3}{13/13}{Logistic Regression Model}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {1}{2}{4}{14/14}{Logistic Regression Model}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {1}{2}{5}{15/15}{Logistic Regression Model}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionpages {11}{15}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{16}{Likelihood Derivation for Logistic Regression}}
+\headcommand {\slideentry {1}{3}{1}{16/16}{Likelihood Derivation for Logistic Regression}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {1}{3}{2}{17/17}{Likelihood Derivation for Logistic Regression}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {1}{3}{3}{18/18}{Likelihood Derivation for Logistic Regression}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {1}{3}{4}{19/19}{Likelihood Derivation for Logistic Regression}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@subsectionpages {16}{19}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{20}{Numerical Estimation and Interpretation}}
+\headcommand {\slideentry {1}{4}{1}{20/20}{Numerical Estimation and Interpretation}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {1}{4}{2}{21/21}{Numerical Estimation and Interpretation}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {1}{4}{3}{22/22}{Numerical Estimation and Interpretation}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {1}{4}{4}{23/23}{Numerical Estimation and Interpretation}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {1}{4}{5}{24/24}{Numerical Estimation and Interpretation}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@sectionpages {4}{24}}
+\headcommand {\beamer@subsectionpages {20}{24}}
+\headcommand {\sectionentry {2}{Q2: Cox Proportional Hazards Model and Hazard Ratios}{25}{Q2: Cox Proportional Hazards Model and Hazard Ratios}{0}}
+\headcommand {\slideentry {2}{0}{1}{25/25}{}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\beamer@subsectionpages {25}{25}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{26}{Fundamentals of Survival Analysis}}
+\headcommand {\slideentry {2}{1}{1}{26/26}{Fundamentals of Survival Analysis}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {2}{1}{2}{27/27}{Fundamentals of Survival Analysis}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {2}{1}{3}{28/28}{Fundamentals of Survival Analysis}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\slideentry {2}{1}{4}{29/29}{Fundamentals of Survival Analysis}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\beamer@subsectionpages {26}{29}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{30}{The Cox Model Formulation}}
+\headcommand {\slideentry {2}{2}{1}{30/30}{The Cox Model Formulation}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\slideentry {2}{2}{2}{31/31}{The Cox Model Formulation}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\slideentry {2}{2}{3}{32/32}{The Cox Model Formulation}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {2}{2}{4}{33/33}{The Cox Model Formulation}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\beamer@subsectionpages {30}{33}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{34}{Hazard Ratios: Definition and Interpretation}}
+\headcommand {\slideentry {2}{3}{1}{34/34}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {2}{3}{2}{35/35}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {2}{3}{3}{36/36}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {2}{3}{4}{37/37}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\slideentry {2}{3}{5}{38/38}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {2}{3}{6}{39/39}{Hazard Ratios: Definition and Interpretation}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\beamer@sectionpages {25}{39}}
+\headcommand {\beamer@subsectionpages {34}{39}}
+\headcommand {\sectionentry {3}{Q3: Principal Component Analysis for Dimensionality Reduction}{40}{Q3: Principal Component Analysis for Dimensionality Reduction}{0}}
+\headcommand {\slideentry {3}{0}{1}{40/40}{}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\beamer@subsectionpages {40}{40}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{41}{Foundational Concepts of PCA}}
+\headcommand {\slideentry {3}{1}{1}{41/41}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {3}{1}{2}{42/42}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{1}{3}{43/43}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {3}{1}{4}{44/44}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {3}{1}{5}{45/45}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {3}{1}{6}{46/46}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {3}{1}{7}{47/47}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {3}{1}{8}{48/48}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\slideentry {3}{1}{9}{49/49}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {3}{1}{10}{50/50}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {3}{1}{11}{51/51}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {3}{1}{12}{52/52}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {3}{1}{13}{53/53}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {3}{1}{14}{54/54}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {3}{1}{15}{55/55}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {3}{1}{16}{56/56}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {3}{1}{17}{57/57}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {3}{1}{18}{58/58}{Foundational Concepts of PCA}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\beamer@sectionpages {40}{58}}
+\headcommand {\beamer@subsectionpages {41}{58}}
+\headcommand {\sectionentry {4}{Q4: Machine Learning Workflow in a Hospital Setting}{59}{Q4: Machine Learning Workflow in a Hospital Setting}{0}}
+\headcommand {\slideentry {4}{0}{1}{59/59}{}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\beamer@subsectionpages {59}{59}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{60}{Purpose of ML in Healthcare}}
+\headcommand {\slideentry {4}{1}{1}{60/60}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {4}{1}{2}{61/61}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\slideentry {4}{1}{3}{62/62}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\slideentry {4}{1}{4}{63/63}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {63}{63}}
+\headcommand {\slideentry {4}{1}{5}{64/64}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {4}{1}{6}{65/65}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {4}{1}{7}{66/66}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\slideentry {4}{1}{8}{67/67}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\slideentry {4}{1}{9}{68/68}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {4}{1}{10}{69/69}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {4}{1}{11}{70/70}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\slideentry {4}{1}{12}{71/71}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\slideentry {4}{1}{13}{72/72}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\slideentry {4}{1}{14}{73/73}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\slideentry {4}{1}{15}{74/74}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\slideentry {4}{1}{16}{75/75}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\slideentry {4}{1}{17}{76/76}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {4}{1}{18}{77/77}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {77}{77}}
+\headcommand {\slideentry {4}{1}{19}{78/78}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {78}{78}}
+\headcommand {\slideentry {4}{1}{20}{79/79}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {79}{79}}
+\headcommand {\slideentry {4}{1}{21}{80/80}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {80}{80}}
+\headcommand {\slideentry {4}{1}{22}{81/81}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {81}{81}}
+\headcommand {\slideentry {4}{1}{23}{82/82}{Purpose of ML in Healthcare}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\beamer@sectionpages {59}{82}}
+\headcommand {\beamer@subsectionpages {60}{82}}
+\headcommand {\sectionentry {5}{References}{83}{References}{0}}
+\headcommand {\slideentry {5}{0}{1}{83/83}{}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\slideentry {5}{0}{2}{84/84}{}{0}}
+\headcommand {\beamer@framepages {84}{84}}
+\headcommand {\slideentry {5}{0}{3}{85/85}{}{0}}
+\headcommand {\beamer@framepages {85}{85}}
+\headcommand {\slideentry {5}{0}{4}{86/86}{}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\slideentry {5}{0}{5}{87/87}{}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\beamer@partpages {1}{87}}
+\headcommand {\beamer@subsectionpages {83}{87}}
+\headcommand {\beamer@sectionpages {83}{87}}
+\headcommand {\beamer@documentpages {87}}
+\headcommand {\gdef \inserttotalframenumber {73}}
