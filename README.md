@@ -70,7 +70,7 @@ xelatex combined_presentation.tex
 Group 5 Members:
 - Cavin Otieno (SDS6/46982/2024)
 - Laura Nabalayo Kundu (SDS6/47543/2024)
-- John Andrew (SDS6/47543/2024)
+- John Andrew (SDS6/47659/2024)
 
 ## Course Information
 
