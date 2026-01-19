@@ -83,16 +83,13 @@ Statistical inference involves estimating unknown parameters from observed data:
 Given a random sample $X_1, X_2, \ldots, X_n$ from a distribution with probability density function $f(x|\theta)$, where $\theta$ is an unknown parameter, we seek to estimate $\theta$ based on the observed data.
 \end{block}
 
-\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.2cm, text centered, draw=MidnightBlue, fill=blue!10]
-\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1.2cm, text centered, draw=MidnightBlue, fill=blue!10}]
+\node (data) {Observed Data\\$X_1, X_2, \ldots, X_n$};
+\node (model) [right of=data, xshift=4cm] {Statistical Model\\$f(x|\theta)$};
+\node (estimate) [below of=data, yshift=-1cm] {Estimator\\$\hat{\theta}$};
 
-\begin{tikzpicture}[node distance=2cm]
-\node (data) [block] {Observed Data\\$X_1, X_2, \ldots, X_n$};
-\node (model) [block, right of=data, xshift=4cm] {Statistical Model\\$f(x|\\theta)$};
-\node (estimate) [block, below of=data, yshift=-1cm] {Estimator\\$\\hat{\\theta}$};
-
-\draw [arrow] (data) -- (model) node[midway, above] {Model assumption};
-\draw [arrow] (model) -- (estimate) node[midway, right] {MLE};
+\draw [thick,->,>=stealth] (data) -- (model) node[midway, above] {Model assumption};
+\draw [thick,->,>=stealth] (model) -- (estimate) node[midway, right] {MLE};
 \end{tikzpicture}
 \end{frame}
 
@@ -327,12 +324,10 @@ For a one-unit increase in predictor $X_j$:
 $$\text{OR} = e^{\beta_j} = \frac{\text{odds}(Y=1|X_j+1)}{\text{odds}(Y=1|X_j)}$$
 \end{block}
 
-\tikzstyle{interpret} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.8cm, text centered]
-
-\begin{tikzpicture}[node distance=1.5cm]
-\node (I1) [interpret, draw=MidnightBlue, fill=blue!10] {$\\beta_j > 0 \\implies e^{\\beta_j} > 1$: Increased odds of outcome};
-\node (I2) [interpret, below of=I1, draw=Green, fill=green!10] {$\\beta_j = 0 \\implies e^{\\beta_j} = 1$: No association};
-\node (I3) [interpret, below of=I2, draw=Red, fill=red!10] {$\\beta_j < 0 \\implies e^{\\beta_j} < 1$: Decreased odds of outcome};
+\begin{tikzpicture}[node distance=1.5cm, every node/.style={rectangle, rounded corners, minimum width=10cm, minimum height=0.8cm, text centered}]
+\node (I1) [draw=MidnightBlue, fill=blue!10] {$\beta_j > 0 \implies e^{\beta_j} > 1$: Increased odds of outcome};
+\node (I2) [below of=I1, draw=Green, fill=green!10] {$\beta_j = 0 \implies e^{\beta_j} = 1$: No association};
+\node (I3) [below of=I2, draw=Red, fill=red!10] {$\beta_j < 0 \implies e^{\beta_j} < 1$: Decreased odds of outcome};
 \end{tikzpicture}
 \end{frame}
 
@@ -381,11 +376,9 @@ Survival analysis studies the time until the occurrence of a specific event:
 Let $T$ denote the survival time, defined as the time from a defined origin (e.g., diagnosis, treatment initiation) to the occurrence of a specified event (e.g., death, disease recurrence, recovery).
 \end{block}
 
-\tikzstyle{block} = [rectangle, rounded corners, minimum width=5cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10]
-
-\begin{tikzpicture}[node distance=2cm]
-\node (origin) [block] {Origin\\$t=0$};
-\node (event) [block, right of=origin, xshift=5cm] {Event\\$T=t$};
+\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=5cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10}]
+\node (origin) {Origin\\$t=0$};
+\node (event) [right of=origin, xshift=5cm] {Event\\$T=t$};
 
 \draw[->, thick, >=stealth] (origin) -- (event) node[midway, above] {Survival time $T$};
 
@@ -528,12 +521,10 @@ The exponentiated coefficient directly gives the hazard ratio for a one-unit cha
 \end{frame}
 
 \begin{frame}{Interpretation of Hazard Ratios}
-\tikzstyle{interpretation} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered]
-
-\begin{tikzpicture}[node distance=1.2cm]
-\node (I1) [interpretation, draw=Green, fill=green!10] {$\\beta > 0 \\implies \\text{HR} > 1$: The covariate increases the hazard (risk factor)};
-\node (I2) [interpretation, below of=I1, draw=MidnightBlue, fill=blue!10] {$\\beta = 0 \\implies \\text{HR} = 1$: No association};
-\node (I3) [interpretation, below of=I2, draw=Red, fill=red!10] {$\\beta < 0 \\implies \\text{HR} < 1$: The covariate decreases the hazard (protective factor)};
+\begin{tikzpicture}[node distance=1.2cm, every node/.style={rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered}]
+\node (I1) [draw=Green, fill=green!10] {$\beta > 0 \implies \text{HR} > 1$: The covariate increases the hazard (risk factor)};
+\node (I2) [below of=I1, draw=MidnightBlue, fill=blue!10] {$\beta = 0 \implies \text{HR} = 1$: No association};
+\node (I3) [below of=I2, draw=Red, fill=red!10] {$\beta < 0 \implies \text{HR} < 1$: The covariate decreases the hazard (protective factor)};
 \end{tikzpicture}
 \end{frame}
 
@@ -567,11 +558,11 @@ If $\beta_{\text{age}} = 0.08$ (per year):
 \begin{frame}{Q2 Summary: Key Equations}
 \begin{small}
 \begin{align*}
-\textbf{Hazard Function:} \quad & h(t) = \\lim_{\\Delta t \\to 0} \\frac{P(t \\le T < t + \\Delta t | T \\ge t)}{\\Delta t} \\\\
-\textbf{Survival Function:} \quad & S(t) = P(T > t) \\\\
-\textbf{Cox Model:} \quad & h(t|X) = h_0(t) \\exp(\\beta_1 X_1 + \\cdots + \\beta_k X_k) \\\\
-\textbf{Hazard Ratio:} \quad & \\text{HR} = \\exp(\\beta_j) \\\\
-\textbf{Data:} \quad & \\text{Observed time } t_i = \\min(T_i, C_i), \\quad \\delta_i = I(T_i \\le C_i)
+\textbf{Hazard Function:} \quad & h(t) = \lim_{\Delta t \to 0} \frac{P(t \le T < t + \Delta t | T \ge t)}{\Delta t} \\
+\textbf{Survival Function:} \quad & S(t) = P(T > t) \\
+\textbf{Cox Model:} \quad & h(t|X) = h_0(t) \exp(\beta_1 X_1 + \cdots + \beta_k X_k) \\
+\textbf{Hazard Ratio:} \quad & \text{HR} = \exp(\beta_j) \\
+\textbf{Data:} \quad & \text{Observed time } t_i = \min(T_i, C_i), \quad \delta_i = I(T_i \le C_i)
 \end{align*}
 \end{small}
 \end{frame}
@@ -591,16 +582,13 @@ Principal Component Analysis (PCA) is a linear dimensionality reduction techniqu
 PCA is an unsupervised learning technique that transforms a set of correlated variables into a smaller set of uncorrelated variables called \textbf{principal components} (PCs), while retaining the maximum possible variance in the original data.
 \end{block}
 
-\tikzstyle{block} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10]
-\tikzstyle{arrow} = [thick,->,>=stealth]
+\begin{tikzpicture}[node distance=2cm, every node/.style={rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm, text centered, draw=MidnightBlue, fill=blue!10}]
+\node (input) {Original Data\\$n \times p$ matrix\\$p = 15$ indicators};
+\node (pca) [right of=input, xshift=5cm] {PCA\\Transformation};
+\node (output) [right of=pca, xshift=5cm] {Reduced Data\\$n \times k$ matrix\\$k = 4$ components};
 
-\begin{tikzpicture}[node distance=2cm]
-\node (input) [block] {Original Data\\$n \\times p$ matrix\\$p = 15$ indicators};
-\node (pca) [block, right of=input, xshift=5cm] {PCA\\Transformation};
-\node (output) [block, right of=pca, xshift=5cm] {Reduced Data\\$n \\times k$ matrix\\$k = 4$ components};
-
-\draw [arrow] (input) -- (pca) node[midway, above] {Linear\\projection};
-\draw [arrow] (pca) -- (output) node[midway, above] {Variance\\maximization};
+\draw [thick,->,>=stealth] (input) -- (pca) node[midway, above] {Linear\\projection};
+\draw [thick,->,>=stealth] (pca) -- (output) node[midway, above] {Variance\\maximization};
 \end{tikzpicture}
 \end{frame}
 
@@ -647,26 +635,22 @@ where $\mathbf{a}_j = (a_{j1}, \ldots, a_{jp})$ is the loading vector (eigenvect
 \begin{frame}{The Problem of Dimensionality in Clinical Research}
 Modern clinical studies often collect numerous measurements per patient:
 
-\tikzstyle{challenge} = [rectangle, rounded corners, minimum width=10cm, minimum height=1cm, text centered]
-
-\begin{tikzpicture}[node distance=1.5cm]
-\node (C1) [challenge, draw=Red, fill=red!10] {High correlation among clinical indicators};
-\node (C2) [challenge, below of=C1, draw=Orange, fill=orange!10] {Small sample sizes relative to number of variables};
-\node (C3) [challenge, below of=C2, draw=Yellow, fill=yellow!10] {Multicollinearity complicates regression modeling};
-\node (C4) [challenge, below of=C3, draw=MidnightBlue, fill=blue!10] {Difficult interpretation of 15+ correlated variables};
+\begin{tikzpicture}[node distance=1.5cm, every node/.style={rectangle, rounded corners, minimum width=10cm, minimum height=1cm, text centered}]
+\node (C1) [draw=Red, fill=red!10] {High correlation among clinical indicators};
+\node (C2) [below of=C1, draw=Orange, fill=orange!10] {Small sample sizes relative to number of variables};
+\node (C3) [below of=C2, draw=Yellow, fill=yellow!10] {Multicollinearity complicates regression modeling};
+\node (C4) [below of=C3, draw=MidnightBlue, fill=blue!10] {Difficult interpretation of 15+ correlated variables};
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Benefits of Dimensionality Reduction}
 Reducing 15 indicators to 4 principal components offers several advantages:
 
-\tikzstyle{benefit} = [rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered]
-
-\begin{tikzpicture}[node distance=1.2cm]
-\node (B1) [benefit, draw=MidnightBlue, fill=blue!10] {Dimensionality reduction: 15 $\\rightarrow$ 4 variables (73\% reduction)};
-\node (B2) [benefit, below of=B1, draw=Green, fill=green!10] {Decorrelation: Components are uncorrelated (eliminates multicollinearity)};
-\node (B3) [benefit, below of=B2, draw=Orange, fill=orange!10] {Noise reduction: Low-variance components often capture measurement error};
-\node (B4) [benefit, below of=B3, draw=Purple, fill=purple!10] {Interpretability: Each PC represents a clinical dimension};
+\begin{tikzpicture}[node distance=1.2cm, every node/.style={rectangle, rounded corners, minimum width=10cm, minimum height=0.9cm, text centered}]
+\node (B1) [draw=MidnightBlue, fill=blue!10] {Dimensionality reduction: 15 $\rightarrow$ 4 variables (73\% reduction)};
+\node (B2) [below of=B1, draw=Green, fill=green!10] {Decorrelation: Components are uncorrelated (eliminates multicollinearity)};
+\node (B3) [below of=B2, draw=Orange, fill=orange!10] {Noise reduction: Low-variance components often capture measurement error};
+\node (B4) [below of=B3, draw=Purple, fill=purple!10] {Interpretability: Each PC represents a clinical dimension};
 \end{tikzpicture}
 \end{frame}
 
@@ -751,14 +735,12 @@ PC4 & 1.68 & 11.2 & 74.7 \\
 \end{frame}
 
 \begin{frame}{Step-by-Step Algorithm Summary}
-\tikzstyle{step} = [rectangle, rounded corners, minimum width=12cm, minimum height=0.9cm, text centered]
-
-\begin{tikzpicture}[node distance=1cm]
-\node (S1) [step, draw=MidnightBlue, fill=blue!10] {\textbf{Step 1:} Standardize data: $Z_{ij} = (X_{ij} - \\bar{X}_j) / s_j$};
-\node (S2) [step, below of=S1, draw=Green, fill=green!10] {\textbf{Step 2:} Compute correlation matrix: $\\mathbf{R} = \\frac{1}{n-1}\\mathbf{Z}^T\\mathbf{Z}$};
-\node (S3) [step, below of=S2, draw=Orange, fill=orange!10] {\textbf{Step 3:} Eigenvalue decomposition: $\\mathbf{R}\\mathbf{v}_j = \\lambda_j\\mathbf{v}_j$};
-\node (S4) [step, below of=S3, draw=Purple, fill=purple!10] {\textbf{Step 4:} Order by eigenvalues: $\\lambda_1 \\ge \\lambda_2 \\ge \\cdots \\ge \\lambda_{15}$};
-\node (S5) [step, below of=S4, draw=Red, fill=red!10] {\textbf{Step 5:} Select top $k$ components and compute scores: $\\mathbf{PC} = \\mathbf{Z}\\mathbf{V}_k$};
+\begin{tikzpicture}[node distance=1cm, every node/.style={rectangle, rounded corners, minimum width=12cm, minimum height=0.9cm, text centered}]
+\node (S1) [draw=MidnightBlue, fill=blue!10] {\textbf{Step 1:} Standardize data: $Z_{ij} = (X_{ij} - \bar{X}_j) / s_j$};
+\node (S2) [below of=S1, draw=Green, fill=green!10] {\textbf{Step 2:} Compute correlation matrix: $\mathbf{R} = \frac{1}{n-1}\mathbf{Z}^T\mathbf{Z}$};
+\node (S3) [below of=S2, draw=Orange, fill=orange!10] {\textbf{Step 3:} Eigenvalue decomposition: $\mathbf{R}\mathbf{v}_j = \lambda_j\mathbf{v}_j$};
+\node (S4) [below of=S3, draw=Purple, fill=purple!10] {\textbf{Step 4:} Order by eigenvalues: $\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_{15}$};
+\node (S5) [below of=S4, draw=Red, fill=red!10] {\textbf{Step 5:} Select top $k$ components and compute scores: $\mathbf{PC} = \mathbf{Z}\mathbf{V}_k$};
 \end{tikzpicture}
 \end{frame}
 
@@ -787,7 +769,7 @@ The scree plot visualizes eigenvalues to guide component selection:
 (15,0.15)
 };
 
-\draw[dashed, red] (0,1) -- (16,1) node[right at={(16,1)}] {Kaiser criterion ($\\lambda=1$)};
+\draw[dashed, red] (0,1) -- (16,1) node[right at={(16,1)}] {Kaiser criterion ($\lambda=1$)};
 
 \node[circle, draw=Red, fill=red!10, minimum size=0.3cm] at (4,1.68) {};
 
@@ -878,25 +860,23 @@ Points = patient scores; Arrows = variable loadings.
 \begin{frame}{Limitations of PCA}
 PCA has important limitations:
 
-\tikzstyle{limitation} = [rectangle, rounded corners, minimum width=11cm, minimum height=0.9cm, text centered]
-
-\begin{tikzpicture}[node distance=1cm]
-\node (L1) [limitation, draw=Red, fill=red!10] {\textbf{Linearity}: PCA only captures linear relationships};
-\node (L2) [limitation, below of=L1, draw=Orange, fill=orange!10] {\textbf{No class discrimination}: Components may not separate disease groups};
-\node (L3) [limitation, below of=L2, draw=Yellow, fill=yellow!10] {\textbf{Interpretability}: Component meaning may be unclear};
-\node (L4) [limitation, below of=L3, draw=MidnightBlue, fill=blue!10] {\textbf{Information loss}: Some variance is discarded};
+\begin{tikzpicture}[node distance=1cm, every node/.style={rectangle, rounded corners, minimum width=11cm, minimum height=0.9cm, text centered}]
+\node (L1) [draw=Red, fill=red!10] {\textbf{Linearity}: PCA only captures linear relationships};
+\node (L2) [below of=L1, draw=Orange, fill=orange!10] {\textbf{No class discrimination}: Components may not separate disease groups};
+\node (L3) [below of=L2, draw=Yellow, fill=yellow!10] {\textbf{Interpretability}: Component meaning may be unclear};
+\node (L4) [below of=L3, draw=MidnightBlue, fill=blue!10] {\textbf{Information loss}: Some variance is discarded};
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Q3 Summary: Key Equations}
 \begin{small}
 \begin{align*}
-\textbf{Standardization:} \quad & Z_{ij} = \\frac{X_{ij} - \\bar{X}_j}{s_j} \\\\
-\textbf{Correlation Matrix:} \quad & \\mathbf{R} = \\frac{1}{n-1}\\mathbf{Z}^T\\mathbf{Z} \\\\
-\textbf{Eigen Decomposition:} \quad & \\mathbf{R}\\mathbf{v}_j = \\lambda_j\\mathbf{v}_j \\\\
-\textbf{Variance Explained:} \quad & \\text{VE}_j = \\frac{\\lambda_j}{\\sum_{m=1}^{15}\\lambda_m} \\times 100\\% \\\\
-\textbf{Component Scores:} \quad & PC_{ij} = \\sum_{k=1}^{15} z_{ik}v_{kj} \\\\
-\textbf{Cumulative Variance:} \quad & \\text{CVE}_4 = 74.7\\%
+\textbf{Standardization:} \quad & Z_{ij} = \frac{X_{ij} - \bar{X}_j}{s_j} \\
+\textbf{Correlation Matrix:} \quad & \mathbf{R} = \frac{1}{n-1}\mathbf{Z}^T\mathbf{Z} \\
+\textbf{Eigen Decomposition:} \quad & \mathbf{R}\mathbf{v}_j = \lambda_j\mathbf{v}_j \\
+\textbf{Variance Explained:} \quad & \text{VE}_j = \frac{\lambda_j}{\sum_{m=1}^{15}\lambda_m} \times 100\% \\
+\textbf{Component Scores:} \quad & PC_{ij} = \sum_{k=1}^{15} z_{ik}v_{kj} \\
+\textbf{Cumulative Variance:} \quad & \text{CVE}_4 = 74.7\%
 \end{align*}
 \end{small}
 \end{frame}
