@@ -1,0 +1,359 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning, fit, backgrounds}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usetheme{metropolis}
+
+\title{Machine Learning Workflow in a Hospital Setting}
+\subtitle{SDS6210 – Informatics for Health (Q4)}
+\author{MSc Public Health Data Science}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+    \begin{center}
+        \begin{tabular}{ll}
+            \toprule
+            \textbf{Student ID} & \textbf{Student Name} \\
+            \midrule
+            SDS6/46982/2024 & Cavin Otieno \\
+            SDS6/47543/2024 & Laura Nabalayo Kundu \\
+            SDS6/47659/2024 & John Andrew \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\section{Purpose of Machine Learning in Hospital Settings}
+
+\begin{frame}{Why Machine Learning in Healthcare?}
+    Machine learning represents a transformative paradigm in healthcare delivery, offering capabilities that augment traditional clinical decision-making processes. The integration of ML into hospital workflows addresses several critical challenges faced by modern healthcare systems.
+
+    \begin{itemize}
+        \item \textbf{Clinical Decision Support}: Real-time risk stratification and early warning systems for conditions such as sepsis, cardiac arrest, and deterioration.
+        \item \textbf{Operational Efficiency}: Resource allocation optimization, patient flow management, and predictive scheduling.
+        \item \textbf{Diagnostic Accuracy}: Enhanced image interpretation, pattern recognition in laboratory data, and differential diagnosis assistance.
+        \item \textbf{Predictive Analytics}: Hospital readmission prediction, length of stay estimation, and population health management.
+    \end{itemize}
+
+    The fundamental shift involves moving from reactive medicine to proactive, personalized, and precision-based clinical interventions powered by data-driven insights.
+\end{frame}
+
+\begin{frame}{From Retrospective Analysis to Real-Time Clinical Applications}
+    Traditional healthcare analytics focused on retrospective cohort studies and population-level statistics. Machine learning enables a paradigm shift toward real-time, individual-level predictions integrated directly into clinical workflows.
+
+    \begin{itemize}
+        \item \textbf{Retrospective Phase}: Secondary analysis of administrative claims, quality improvement initiatives, and research studies.
+        \item \textbf{Proactive Phase}: Prospective risk modeling embedded within electronic health record systems.
+        \item \textbf{Real-Time Phase}: Streaming analytics providing continuous risk scores and actionable alerts at the point of care.
+    \end{itemize}
+
+    \begin{block}{Key Distinction}
+        The transition from descriptive and diagnostic analytics to predictive and prescriptive analytics represents the core value proposition of ML in modern hospital settings.
+    \end{block}
+\end{frame}
+
+\section{Phase 1: Problem Definition and Clinical Question Formulation}
+
+\begin{frame}{Defining the Clinical Problem}
+    The foundation of any successful ML implementation in healthcare begins with a precisely formulated clinical question that aligns with organizational priorities and clinical needs.
+
+    \begin{itemize}
+        \item \textbf{Clinical Validity}: Does the outcome being predicted have clinical significance and actionable intervention options?
+        \item \textbf{Feasibility Assessment}: Are the required data elements available, accessible, and of sufficient quality for model development?
+        \item \textbf{Stakeholder Alignment}: Engagement with clinical champions, informaticists, and administrative leadership.
+        \item \textbf{Success Metrics}: Clear definition of primary and secondary outcomes, including acceptable performance thresholds.
+    \end{itemize}
+
+    Common clinical applications include mortality prediction, readmission risk, sepsis early warning, deterioration detection, and length of stay estimation.
+\end{frame}
+
+\begin{frame}{Translating Clinical Questions to ML Objectives}
+    Bridging the gap between clinical intuition and ML specifications requires careful consideration of outcome definitions, time horizons, and actionability.
+
+    \begin{itemize}
+        \item \textbf{Outcome Definition}: Precise operationalization of clinical endpoints (e.g., 30-day all-cause readmission vs. 30-day preventable readmission).
+        \item \textbf{Prediction Window}: Determination of the relevant time horizon for clinical action (e.g., 24-hour, 48-hour, or 7-day predictions).
+        \item \textbf{Threshold Selection}: Balance between sensitivity and specificity based on clinical consequences of false positives and false negatives.
+    \end{itemize}
+\end{frame}
+
+\section{Phase 2: Data Collection and Preprocessing}
+
+\begin{frame}{Data Sources in Hospital Settings}
+    Hospital data ecosystems comprise multiple interconnected sources that must be harmonized for effective ML development.
+
+    \begin{itemize}
+        \item \textbf{Electronic Health Records (EHR)}: Demographics, vital signs, laboratory results, medications, procedures, and clinical notes.
+        \item \textbf{Administrative Data}: Billing codes, diagnosis codes (ICD-10), procedure codes (CPT), and discharge summaries.
+        \item \textbf{Real-Time Monitoring Data}: Bedside monitors, infusion pumps, ventilators, and other connected medical devices.
+        \item \textbf{External Data Sources}: Social determinants of health, regional epidemiological data, and interoperability networks.
+    \end{itemize}
+
+    \begin{block}{Interoperability Standards}
+        HL7 FHIR (Fast Healthcare Interoperability Resources) serves as the primary standard for healthcare data exchange, enabling seamless integration across disparate systems.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Data Quality and Preprocessing Challenges}
+    Healthcare data presents unique preprocessing challenges that require domain expertise and sophisticated handling techniques.
+
+    \begin{itemize}
+        \item \textbf{Missing Data}: Systematic patterns of missingness (MNAR, MAR, MCAR) require appropriate imputation strategies or sensitivity analyses.
+        \item \textbf{Temporal Heterogeneity}: Changes in clinical practices, coding habits, and documentation standards over time introduce distribution shifts.
+        \item \textbf{Irregular Sampling}: Laboratory results and vital signs are collected at irregular intervals, necessitating time-series handling approaches.
+        \item \textbf{Coding Variations}: ICD-10 code granularity, evolving code sets, and local coding practices require standardization.
+    \end{itemize}
+
+    Robust data validation pipelines and exploratory data analysis are essential prerequisites for model development.
+\end{frame}
+
+\section{Phase 3: Feature Engineering and Selection}
+
+\begin{frame}{Feature Engineering in Clinical Domains}
+    Feature engineering transforms raw clinical data into meaningful predictors that capture the underlying physiological or pathological processes relevant to the prediction task.
+
+    \begin{itemize}
+        \item \textbf{Temporal Aggregation}: Computing trends, rates of change, and temporal patterns from time-series data (e.g., delta neutrophil index, shock index).
+        \item \textbf{Domain-Specific Transformations}: Composite scores such as SOFA (Sequential Organ Failure Assessment), NEWS (National Early Warning Score), and qSOFA.
+        \item \textbf{Natural Language Processing}: Extraction of clinical entities, negation detection, and temporal reasoning from unstructured clinical notes.
+        \item \textbf{Categorical Encodings}: Hierarchical groupings of diagnoses and procedures that capture clinical meaningful categories.
+    \end{itemize}
+
+    The choice of features should be guided by clinical plausibility and pathophysiological rationale.
+\end{frame}
+
+\begin{frame}{Feature Selection Strategies}
+    Feature selection aims to identify the most predictive and generalizable subset of features while avoiding overfitting and maintaining model interpretability.
+
+    \begin{itemize}
+        \item \textbf{Filter Methods}: Correlation analysis, mutual information, chi-square tests, and variance thresholds for preliminary feature screening.
+        \item \textbf{Wrapper Methods}: Recursive feature elimination (RFE) and forward/backward selection algorithms.
+        \item \textbf{Embedded Methods}: L1 regularization (LASSO) and tree-based importance scores from random forests or gradient boosting.
+        \item \textbf{Clinical Validation}: Feature review by subject matter experts to ensure clinical meaningfulness and data quality.
+    \end{itemize}
+
+    Balancing statistical significance with clinical interpretability is crucial for model adoption and regulatory compliance.
+\end{frame}
+
+\section{Phase 4: Model Selection and Training}
+
+\begin{frame}{Model Selection Considerations}
+    The selection of ML algorithms for healthcare applications requires careful consideration of the trade-offs between predictive performance, interpretability, and computational requirements.
+
+    \begin{itemize}
+        \item \textbf{Interpretable Models}: Logistic regression, decision trees, and score-based models that provide transparent decision pathways.
+        \item \textbf{Black-Box Models}: Gradient boosting machines, random forests, and deep neural networks that offer superior predictive performance.
+        \item \textbf{Time-to-Event Models}: Cox proportional hazards and survival analysis frameworks for time-to-event outcomes.
+    \end{itemize}
+
+    \begin{block}{The Interpretability-Performance Trade-off}
+        While complex models may achieve higher discrimination, interpretable models facilitate clinical acceptance, regulatory review, and bias detection. The choice should align with the clinical use case and regulatory environment.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Model Training Best Practices}
+    Rigorous model training protocols ensure reproducibility, generalizability, and fair algorithmic performance across patient populations.
+
+    \begin{itemize}
+        \item \textbf{Train-Validation-Test Split}: Temporal splits for time-series data to prevent data leakage and simulate real-world deployment.
+        \textbf{Cross-Validation}: Stratified k-fold cross-validation for robust performance estimation, particularly with imbalanced outcomes.
+        \item \textbf{Class Imbalance Handling}: SMOTE, class weighting, and threshold optimization for rare clinical events.
+        \item \textbf{Hyperparameter Tuning}: Grid search, random search, or Bayesian optimization for model configuration.
+    \end{itemize}
+\end{frame}
+
+\section{Phase 5: Model Validation and Performance Evaluation}
+
+\begin{frame}{Validation Strategies}
+    Comprehensive validation assesses model performance across multiple dimensions to ensure clinical utility and generalizability.
+
+    \begin{itemize}
+        \item \textbf{Internal Validation}: Bootstrap and cross-validation estimates of optimism-corrected performance metrics.
+        \item \textbf{Temporal Validation}: Performance evaluation on holdout data from a later time period to assess temporal stability.
+        \item \textbf{External Validation}: Testing on independent datasets from different institutions or healthcare systems.
+        \item \textbf{Subgroup Validation}: Performance assessment across demographic subgroups to identify potential algorithmic bias.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Performance Metrics for Clinical Models}
+    Evaluation metrics for healthcare ML models must align with clinical objectives and account for the consequences of prediction errors.
+
+    \begin{itemize}
+        \item \textbf{Discrimination}: Area under the receiver operating characteristic curve (AUC-ROC) for binary classification.
+        \item \textbf{Calibration}: Hosmer-Lemeshow test, calibration curves, and Brier score to assess agreement between predicted and observed probabilities.
+        \item \textbf{Clinical Utility}: Decision curve analysis and net benefit calculations to evaluate risk-benefit trade-offs.
+        \item \textbf{Sensitivity and Specificity}: Performance at clinically relevant operating points, considering the costs of false positives and false negatives.
+    \end{itemize}
+\end{frame}
+
+\section{Phase 6: Deployment and Clinical Integration}
+
+\begin{frame}{Deployment Strategies}
+    Transitioning from research prototypes to clinical systems requires careful architectural planning and phased implementation approaches.
+
+    \begin{itemize}
+        \item \textbf{Shadow Mode Deployment}: Running the model in parallel with clinical workflows without exposing predictions to end-users.
+        \item \textbf{Pilot Implementation}: Limited deployment in specific clinical units or patient populations with enhanced monitoring.
+        \item \textbf{Full Integration}: Production deployment within the electronic health record with user-facing interfaces and alert mechanisms.
+    \end{itemize}
+
+    Technical infrastructure must support real-time inference, high availability, and seamless integration with existing clinical systems.
+\end{frame}
+
+\begin{frame}{Integration into Clinical Workflows}
+    Successful deployment depends on thoughtful integration that respects clinical workflows and minimizes alert fatigue.
+
+    \begin{itemize}
+        \item \textbf{User Interface Design}: In-context displays within clinician workflows, avoiding separate login requirements.
+        \item \textbf{Alert Design}: Tiered alert severity, clear explanatory information, and actionable recommendations.
+        \item \textbf{Feedback Mechanisms}: Capture of clinician acceptance or rejection of recommendations for continuous model improvement.
+        \item \textbf{EHR Integration Standards}: Use of SMART on FHIR applications for standards-based, interoperable deployment.
+    \end{itemize}
+\end{frame}
+
+\section{Model Governance, Monitoring, and Updating}
+
+\begin{frame}{Model Governance Framework}
+    Establishing robust governance structures ensures accountability, transparency, and responsible management of clinical AI systems.
+
+    \begin{itemize}
+        \item \textbf{Model Registry}: Documentation of model versions, training data, performance metrics, and deployment status.
+        \item \textbf{Approval Workflows}: Multidisciplinary review committees including clinicians, data scientists, ethicists, and administrators.
+        \item \textbf{Audit Trails}: Comprehensive logging of model predictions, user interactions, and clinical outcomes.
+        \item \textbf{Incident Response}: Defined procedures for model-related adverse events and unexpected behaviors.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Model Monitoring and Drift Detection}
+    Continuous monitoring is essential to detect performance degradation and maintain clinical safety over time.
+
+    \begin{itemize}
+        \item \textbf{Data Drift Detection}: Statistical monitoring of input feature distributions to identify population shifts.
+        \item \textbf{Concept Drift Detection}: Tracking of outcome rates and prediction-actual differences over time.
+        \item \textbf{Performance Monitoring}: Ongoing calculation of performance metrics against ground truth labels when available.
+        \item \textbf{Alert Thresholding}: Statistical process control methods for detecting significant departures from baseline performance.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Model Updating and Retraining Strategies}
+    Maintaining model relevance requires planned updating protocols that balance performance improvements against stability and validation requirements.
+
+    \begin{itemize}
+        \item \textbf{Scheduled Retraining}: Periodic model updates based on accumulated new data and performance benchmarks.
+        \item \textbf{Triggered Retraining}: Updates initiated by detected performance degradation or significant population shifts.
+        \item \textbf{Online Learning}: Continuous model adaptation to streaming data, with careful safeguards against catastrophic forgetting.
+        \item \textbf{Version Control}: Careful management of model versions with full validation requirements for each update.
+    \end{itemize}
+\end{frame}
+
+\section{Data Privacy, Ethics, and Regulatory Considerations}
+
+\begin{frame}{Data Privacy Requirements}
+    Healthcare ML development must comply with stringent privacy regulations and protect sensitive patient information throughout the data lifecycle.
+
+    \begin{itemize}
+        \item \textbf{Regulatory Compliance}: Adherence to HIPAA (US), GDPR (Europe), and local data protection frameworks.
+        \item \textbf{De-identification}: Application of safe harbor or expert determination methods for protected health information.
+        \item \textbf{Access Controls}: Role-based access, audit logging, and principle of least privilege for data access.
+        \item \textbf{Consent Considerations}: Patient notification requirements and consent mechanisms for secondary use of clinical data.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Ethical Considerations in Clinical ML}
+    Responsible development of clinical AI requires proactive attention to fairness, transparency, and accountability.
+
+    \begin{itemize}
+        \item \textbf{Algorithmic Fairness}: Assessment of model performance across demographic groups to identify and mitigate disparate impacts.
+        \item \textbf{Bias Detection}: Analysis of training data for historical biases and systematic inequities in healthcare delivery.
+        \item \textbf{Transparency}: Explainability features and clear communication about model limitations and uncertainty.
+        \item \textbf{Accountability}: Clear lines of responsibility for model-related decisions and outcomes.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Regulatory Framework for Clinical AI}
+    Clinical ML systems may be subject to regulatory oversight depending on their intended use and risk classification.
+
+    \begin{itemize}
+        \item \textbf{SaMD Classification}: Software as a Medical Device framework from FDA, EU MDR, and other regulatory bodies.
+        \item \textbf{Risk-Based Validation}: Validation requirements scaled to the risk level of the clinical application.
+        \item \textbf{Quality Management Systems}: FDA 21 CFR Part 820, ISO 13485, and other quality system requirements.
+        \item \textbf{Post-Market Surveillance}: Ongoing monitoring requirements and adverse event reporting obligations.
+    \end{itemize}
+\end{frame}
+
+\section{Clinical Decision Support Examples}
+
+\begin{frame}{Example 1: Sepsis Early Warning System}
+    Sepsis prediction represents a canonical use case for ML in hospital settings, demonstrating the full workflow from problem definition to deployment.
+
+    \begin{itemize}
+        \item \textbf{Problem}: Early identification of patients at risk of sepsis to enable timely antibiotic administration.
+        \item \textbf{Data}: Vital signs, laboratory values (lactate, WBC, creatinine), and clinical notes.
+        \item \textbf{Features}: SOFA score components, infection-related indicators, and temporal trends.
+        \item \textbf{Model}: Gradient boosting classifier or random forest with interpretability enhancements.
+        \item \textbf{Deployment}: Integrated into nursing station dashboards with tiered alert levels.
+    \end{itemize}
+
+    Clinical studies have demonstrated reduced mortality and improved outcomes with well-designed sepsis prediction systems.
+\end{frame}
+
+\begin{frame}{Example 2: Radiology Image Triage}
+    Computer vision applications in radiology demonstrate the potential for ML to prioritize critical findings and reduce diagnostic delays.
+
+    \begin{itemize}
+        \item \textbf{Problem}: Prioritization of chest radiographs with potential acute findings (pneumothorax, pneumonia, effusion).
+        \item \textbf{Data}: Historical chest radiographs with radiologist annotations and final reports.
+        \item \textbf{Model}: Convolutional neural networks (CNN) for image classification and object detection.
+        \item \textbf{Features}: Image embeddings, heatmaps highlighting regions of interest, and confidence scores.
+        \item \textbf{Deployment}: Integration with PACS systems to flag studies requiring expedited radiologist review.
+    \end{itemize}
+
+    These systems augment radiologist workflows without replacing human interpretation, ensuring that critical findings receive timely attention.
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Key Takeaways}
+    Successful implementation of ML in hospital settings requires attention to technical, organizational, and ethical dimensions throughout the model lifecycle.
+
+    \begin{itemize}
+        \item \textbf{Clinical Alignment}: ML solutions must address genuine clinical needs with actionable predictions and measurable outcomes.
+        \item \textbf{Data Foundation}: Robust data quality and preprocessing are prerequisites for reliable model development.
+        \item \textbf{Validation Rigor}: Comprehensive validation across temporal, external, and subgroup dimensions ensures generalizability.
+        \item \textbf{Human-in-the-Loop}: Clinical ML should augment rather than replace human judgment, maintaining clinician agency.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Safety, Reliability, and Sustainability}
+    The long-term success of clinical AI depends on maintaining safety standards, ensuring reliability, and building sustainable systems.
+
+    \begin{itemize}
+        \item \textbf{Safety First}: Continuous monitoring, fail-safe mechanisms, and rapid response protocols for adverse events.
+        \item \textbf{Reliability Standards}: Consistent performance across patient populations, time periods, and clinical settings.
+        \item \textbf{Sustainable Operations}: Dedicated resources for model maintenance, updating, and governance.
+        \item \textbf{Organizational Learning**: Integration of ML insights into institutional knowledge and quality improvement processes.
+    \end{itemize}
+
+    \begin{block}{Final Message}
+        Machine learning holds tremendous promise for improving healthcare outcomes, but realizing this potential requires responsible development, rigorous validation, and sustained commitment to patient safety and ethical principles.
+    \end{block}
+\end{frame}
+
+\begin{frame}{References}
+    \begin{itemize}
+        \item Rajkomar, A., Oren, E., Chen, K., et al. (2018). Scalable and accurate deep learning with electronic health records. NPJ Digital Medicine, 1(1), 18.
+        \item Sendak, M. P., Gao, M., Brajer, N., \& Balu, S. (2020). Presenting machine learning model information to clinical end users with model facts labels. NPJ Digital Medicine, 3(1), 41.
+        \item Shah, N. H., Milstein, A., \& Bagley, S. C. (2019). Using machine learning to improve the value of care delivered to patients. JAMA, 322(22), 2155-2156.
+        \item FDA. (2019). Software as a Medical Device (SaMD): Clinical Evaluation. FDA Guidance Document.
+    \end{itemize}
+\end{frame}
+
+\end{document}
